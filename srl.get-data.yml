@@ -17,8 +17,8 @@
     #     var: "ping"
 
     - name: "run show version on remote device"
-      sros_command:
-        command: "show version"
+      ansible.builtin.sros_command:
+        command: show version
         provider: "{{ cli }}"
       # register: "version_result"
 
