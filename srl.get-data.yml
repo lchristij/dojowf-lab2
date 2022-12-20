@@ -1,12 +1,12 @@
 ---
-vars:
+- hosts: "srl"
+  gather_facts: false
+  # connection: "network_cli"
+
+  vars:
   cli:
     transport: cli
 
-- name: "GET DATA FROM DEVICE"
-  hosts: "srl"
-  gather_facts: false
-  # connection: "network_cli"
   tasks:
     # - name: "VALIDATE DEVICES ARE REACHABLE"
     #   ansible.builtin.ping:
