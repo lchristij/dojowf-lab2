@@ -4,8 +4,8 @@
   # connection: "network_cli"
 
   vars:
-  cli:
-    transport: cli
+    cli:
+      transport: cli
 
   tasks:
     # - name: "VALIDATE DEVICES ARE REACHABLE"
