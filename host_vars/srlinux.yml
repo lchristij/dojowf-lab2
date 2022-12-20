@@ -1,5 +1,5 @@
 ---
-hostname: clab-lab-01-srl
+hostname: clab-lab-01-srl1
 domain_name: srl.local
 loopback: 10.10.10.0
 as: 65100
