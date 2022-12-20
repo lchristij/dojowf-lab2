@@ -16,8 +16,8 @@
     #   ansible.builtin.debug:
     #     var: "ping"
 
-    - name: "SHOW VERSION"
-      ansible.builtin.sros_command:
+    - name: "run show version on remote device"
+      sros_command:
         command: "show version"
         provider: "{{ cli }}"
       # register: "version_result"
