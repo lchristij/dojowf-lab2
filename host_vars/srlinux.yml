@@ -8,13 +8,13 @@ topology:
     switchport: no
     ip: 192.168.1.0
     subnet: 31
-    ebgp_peer_ip: 192.168.1.1
-    ebgp_peer_loopback: 10.10.10.1
-    ebgp_peer_as: 65001
+    ibgp_peer_ip: 192.168.1.1
+    ibgp_peer_loopback: 10.10.10.1
+    ibgp_peer_as: 65001
   - interface: Ethernet2
     switchport: no
     ip: 192.168.1.2
     subnet: 31
-    ebgp_peer_ip: 192.168.1.3
-    ebgp_peer_loopback: 10.10.10.2
-    ebgp_peer_as: 65002
+    ibgp_peer_ip: 192.168.1.3
+    ibgp_peer_loopback: 10.10.10.2
+    ibgp_peer_as: 65002
