@@ -1,0 +1,4 @@
+---
+collections:
+  - "community.network"
+  - "arista.eos"
