@@ -3,8 +3,8 @@
   gather_facts: false
   # connection: "sr_cli"
   connection: "network_cli"
-  ansible_network_os: community.network.sros
-  
+  ansible_network_os: community.network.nos
+
   # vars:
     # cli:
       # transport: sr_cli
@@ -38,8 +38,8 @@
     #     msg: "{{ version_result['parsed'][0]['image'] }}"
 
     - name: "run show version on remote device"
-      community.network.sros_command:
-      # community.network.nos_command:
+      # community.network.sros_command:
+      community.network.nos_command:
         commands: "show version"
         # provider: "{{ cli }}"
       # register: "version_result"
