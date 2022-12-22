@@ -1,18 +1,19 @@
 ---
-- name: Nokia SR get data example
-  host: "srl"
-  gather_facts: no
+- name: "GET NOKIA SR LINUX DATA"
+  hosts: "srl"
+  gather_facts: false
+  connection: "network_cli"
 
-vars:
-  cli:
-    hosts: "srl"
-    username: admin
-    password: NokiaSrl1!
-    transport: cli
+  vars:
+    cli:
+      host: "srl"
+      username: admin
+      password: NokiaSrl1!
+      transport: cli
 
-tasks:
-  - name: "run show version on remote device"
-    sros_command:
-      commands: show version
-      provider: "{{ cli }}"
+  tasks:
+    - name: "run show version on remote device"
+      sros_command:
+        commands: show version
+        provider: "{{ cli }}"
         
