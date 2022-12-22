@@ -3,6 +3,7 @@
   gather_facts: false
   # connection: "sr_cli"
   connection: "network_cli"
+  ansible_network_os: community.network.sros
   
   # vars:
     # cli:
