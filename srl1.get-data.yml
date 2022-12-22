@@ -10,12 +10,12 @@
       username: admin
       password: NokiaSrl1!
       transport: cli
-      ansible_network_os: community.network.nos
 
   tasks:
     - name: "run show version on remote device"
       community.network.nos_command:
         commands: show version
         provider: "{{ cli }}"
+      register: show_ver
       when: ansible_network_os == 'community.network.nos'
         
