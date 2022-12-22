@@ -1,8 +1,9 @@
 ---
 - hosts: "srl"
   gather_facts: false
-  connection: "sr_cli"
-  # connection: "network_cli"
+  # connection: "sr_cli"
+  connection: "network_cli"
+  os: "network_nos"
 
   vars:
     cli:
