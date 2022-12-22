@@ -1,4 +1,8 @@
 ---
+- name: Nokia SR get data example
+  host: "srl"
+  gather_facts: no
+
 vars:
   cli:
     hosts: "srl"
