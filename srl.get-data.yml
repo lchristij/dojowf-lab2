@@ -32,7 +32,7 @@
 
     - name: "run show version on remote device"
       # community.network.sros_command:
-      community.network.nos_command
+      community.network.nos_command:
         commands: "show version"
         # provider: "{{ cli }}"
       # register: "version_result"
