@@ -15,4 +15,4 @@ all:
         ansible_become_method=enable
         ansible_network_os=community.network.nos
         ansible_user=admin
-        ansible_password=NokiaSrl1!
+        ansible_ssh_pass=NokiaSrl1!
