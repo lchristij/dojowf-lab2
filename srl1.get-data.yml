@@ -13,8 +13,8 @@
 
   tasks:
     - name: "run show version on remote device"
-      ansible_network_os: community.network.nos
-      sros_command:
+      community.network.nos_command:
         commands: show version
         provider: "{{ cli }}"
+      when: ansible_network_os == 'community.network.nos'
         
