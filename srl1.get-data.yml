@@ -3,6 +3,7 @@
   hosts: "srl"
   gather_facts: false
   connection: "network_cli"
+  ansible_network_os: community.network.nos
 
   vars:
     cli:
@@ -10,7 +11,6 @@
       username: admin
       password: NokiaSrl1!
       transport: cli
-      ansible_network_os: community.network.nos
 
   tasks:
     - name: "run show version on remote device"
