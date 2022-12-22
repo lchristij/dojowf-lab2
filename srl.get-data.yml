@@ -42,8 +42,8 @@
         commands: "show version"
         # provider: "{{ cli }}"
       # register: "version_result"
-      register: "show_ver"
-      when: ansible_network_os == 'community.network.sros'
+      # register: "show_ver"
+      # when: ansible_network_os == 'community.network.sros'
       # when: ansible_network_os == 'community.network.nos'
 
     # - name: "{{ inventory_hostname | upper }} OS VERSION"
