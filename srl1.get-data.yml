@@ -7,8 +7,8 @@
   tasks:
     - name: "run show version NOS"
       community.network.sros_command:
-        commands: show version
-        wait_for: result[0] contains sros
+        commands: show interface
+        # wait_for: result[0] contains sros
     # - name: "run show version on remote device"
     #   community.network.nos_command:
     #     commands: "show version"
