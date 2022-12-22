@@ -3,7 +3,6 @@
   hosts: "srl"
   gather_facts: false
   connection: "network_cli"
-  ansible_network_os: community.network.nos
 
   vars:
     cli:
@@ -14,6 +13,7 @@
 
   tasks:
     - name: "run show version on remote device"
+      ansible_network_os: community.network.nos
       sros_command:
         commands: show version
         provider: "{{ cli }}"
