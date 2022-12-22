@@ -1,0 +1,15 @@
+---
+- hosts: "srl"
+  gather_facts: false
+  # connection: "sr_cli"
+  connection: "network_cli"
+  
+  vars:
+    ansible_network_os: community.network.nos
+
+
+  tasks:
+    - name: "run show version on remote device"
+      community.network.nos_command:
+        commands: "show version"
+        
