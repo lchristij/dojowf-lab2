@@ -1,20 +1,16 @@
 ---
-- hosts: "srl"
-  gather_facts: false
-  # connection: "sr_cli"
-  connection: "network_cli"
+vars:
+  cli:
+    hosts: "srl"
+    username: admin
+    password: NokiaSrl1!
+    transport: cli
   
-  vars:
-    ansible_ssh_user: admin
-    ansible_ssh_pass: NokiaSrl1!
-    ansible_ssh_common_args: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
-    ansible_network_os: community.network.nos
-    ansible_host_key_auto_add: yes
-    ansible_host_key_checking: False
-
-
-  tasks:
-    - name: "run show version on remote device"
-      community.network.nos_command:
-        commands: "show version"
+  
+---
+tasks:
+  - name: "run show version on remote device"
+    sros_command:
+      commands: show version
+      provider: "{{ cli }}"
         
