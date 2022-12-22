@@ -10,7 +10,7 @@
       sros_command:
         commands:
           - show version
-            parser:
+        parser:
           name: "ansible.netcommon.ntc_templates"
       register: "version_result"
     # - name: "run show version on remote device"
