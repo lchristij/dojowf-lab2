@@ -8,9 +8,4 @@
     - name: "run show version NOS"
       community.network.sros_command:
         commands: show interface
-        # wait_for: result[0] contains sros
-    # - name: "run show version on remote device"
-    #   community.network.nos_command:
-    #     commands: "show version"
-    #   register: show_ver
-    #   when: ansible_network_os == 'community.network.nos'    
+        
