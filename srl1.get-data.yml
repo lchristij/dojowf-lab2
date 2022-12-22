@@ -5,9 +5,7 @@ vars:
     username: admin
     password: NokiaSrl1!
     transport: cli
-  
-  
----
+
 tasks:
   - name: "run show version on remote device"
     sros_command:
