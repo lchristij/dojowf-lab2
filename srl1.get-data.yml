@@ -2,18 +2,13 @@
 - name: "GET NOKIA SR LINUX DATA"
   hosts: "srl"
   gather_facts: false
-  connection: local
-
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
+  connection: "network_cli"
 
   tasks:
     - name: "run show version NOS"
       sros_command:
         commands:
           - show version
-        provider: "{{ cli }}"
     # - name: "run show version on remote device"
     #   community.network.nos_command:
     #     commands: "show version"
