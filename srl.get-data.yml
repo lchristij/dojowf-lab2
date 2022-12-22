@@ -4,14 +4,14 @@
   # connection: "sr_cli"
   connection: "network_cli"
   
-  vars:
+  # vars:
     # cli:
       # transport: sr_cli
     # ansible_ssh_user: linuxadmin
     # ansible_ssh_pass: NokiaSrl1!
     # anssible_ssh_common_args: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
     # ansible_network_os: community.network.nos
-    ansible_network_os: community.network.sros
+    # ansible_network_os: community.network.sros
     # ansible_host_key_auto_add: yes
     # ansible_host_key_checking: False
 
