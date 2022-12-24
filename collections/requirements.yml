@@ -1,4 +1,6 @@
 ---
 collections:
+  - "ansible.utils"
+  - "ansible.netcommon"
   - "community.network"
   - "arista.eos"
