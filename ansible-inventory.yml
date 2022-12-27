@@ -11,8 +11,10 @@ all:
         clab-lab-01-srl1:
           ansible_host: 172.200.210.12
       vars:
-        ansible_become=yes
-        ansible_become_method=enable
-        ansible_network_os=community.network.nos
-        ansible_user=admin
-        ansible_ssh_pass=NokiaSrl1!
+        ansible_user=cloud_user
+        ansible_ssh_pass=cl0uds4ndb0x2022!
+        # ansible_become=yes
+        # ansible_become_method=enable
+        # ansible_network_os=community.network.nos
+        # ansible_user=admin
+        # ansible_ssh_pass=NokiaSrl1!
