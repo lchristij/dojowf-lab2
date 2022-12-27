@@ -6,20 +6,21 @@
 
   vars:
     commands:
-      - info system name host-name
-      - info system information
-      - info system json-rpc-server network-instance mgmt http
-
+      - show version
+      - show platform chassis
   tasks:
     - name: "get hostname and contact"
       ansible.builtin.uri:
+        url: http://{{inventory_hostname}}/jsonrpc
+        url_username: admin
+        url_password: NokiaSrl1!
+        method: POST
         body:
           jsonrpc: "2.0"
           id: 1
           method: cli
           params:
-            datastore: state
-            commands: "{{ commands }}"
+            commands: "{{commands}}"
             output-format: text
         body_format: json
       register: cli_result
