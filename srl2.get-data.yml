@@ -4,24 +4,25 @@
   gather_facts: false
   connection: local
 
+  vars:
+    commands:
+      - info system name host-name
+      - info system information
+      - info system json-rpc-server network-instance mgmt http
+
   tasks:
-    - name: "get hostname and version"
+    - name: "get hostname and contact"
       ansible.builtin.uri:
-        url_username: admin
-        url_password: NokiaSrl1!
-        method: POST
         body:
           jsonrpc: "2.0"
           id: 1
-          method: get
+          method: cli
           params:
             datastore: state
-            commands:
-              - path: /system/name/host-name
-              - path: /system/information/version
-              datastore: running
+            commands: "{{ commands }}"
+            output-format: text
         body_format: json
-      register: get_result
+      register: cli_result
 
     - ansible.builtin.debug:
-        msg: "Host {{get_result.json.result[0]}} runs {{get_result.json.result[1]}} version"
+        msg: "Host {{cli_result.json.result[0]}} contact {{cli_result.json.result[1]}}"
