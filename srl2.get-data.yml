@@ -6,8 +6,8 @@
 
   vars:
     commands:
-      - show version
-      - show platform chassis
+      - info system name host-name
+      - info system information
   tasks:
     - name: "get hostname and contact"
       ansible.builtin.uri:
