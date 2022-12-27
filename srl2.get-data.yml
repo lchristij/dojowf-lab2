@@ -1,6 +1,6 @@
 ---
-- name: GET STATE DATA FROM SR LINUX
-  hosts: srl
+- name: "GET STATE DATA FROM SR LINUX"
+  hosts: "srl"
   gather_facts: false
   connection: local
 
@@ -22,7 +22,7 @@
               - path: /system/json-rpc-server/network-instance[name=mgmt]/https/tls-profile
               datastore: running
         body_format: json
-      register: get_results
+      register: get_result
 
     - ansible.builtin.debug:
-        msg: "Host {{get_results.json.result[0]}} runs {{get_results.json.result[1]}} version"
+        msg: "Host {{get_result.json.result[0]}} runs {{get_result.json.result[1]}} version"
