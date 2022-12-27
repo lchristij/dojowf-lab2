@@ -19,7 +19,7 @@
             commands:
               - path: /system/name/host-name
               - path: /system/information/version
-              - path: /system/json-rpc-server/network-instance[name=mgmt]/http
+              # - path: /system/json-rpc-server/network-instance[name=mgmt]/http
               datastore: running
         body_format: json
       register: get_result
