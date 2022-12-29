@@ -20,8 +20,10 @@ interfaces:
   - eos_if: "Ethernet1"
     desc: "Ethernet1 - Srl peering intf"
     enabled: true
+    routed: true
     ipv4: "192.168.1.1/24"
   - eos_if: "Ethernet2"
     desc: "Ethernet2 - ceos2 peering intf"
     enabled: true
+    routed: true
     ipv4: "192.168.1.4/24"
