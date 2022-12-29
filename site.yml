@@ -1,1 +1,13 @@
 ---
+# BGP Configurations
+- hosts: "ceos"
+  gather_facts: false
+  connection: "network_cli"
+  ##
+  tasks:
+  - import_role: roles/routing.yml
+  - name: save EOS running to startup config after modifying
+    ansible.builtin.eos_config:
+      save_when: modified
+    register: save_results
+    when: ansible_network_os == 'arista.eos.eos'

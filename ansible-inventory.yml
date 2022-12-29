@@ -6,6 +6,8 @@ all:
           ansible_host: 172.200.210.11
         clab-lab-01-ceos2:
           ansible_host: 172.200.210.13
+      vars:
+        ansible_network_os: eos
     srl:
       hosts:
         clab-lab-01-srl1:
