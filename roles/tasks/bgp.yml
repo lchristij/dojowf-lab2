@@ -1,6 +1,0 @@
----
-# tasks file for roles
-- name: Configure BGP - iBGP v4 peers
-  ansible.builtin.eos_bgp:
-    config:
-      bgp_as:
