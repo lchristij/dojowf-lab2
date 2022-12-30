@@ -10,5 +10,5 @@
   - import_role: 
       name: routeprotocols
   - name: save EOS running to startup config after modifying
-    arista.eos.eos_config:
+    eos_config:
       save_when: modified
