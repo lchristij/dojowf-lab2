@@ -5,8 +5,10 @@
   connection: "network_cli"
   ##
   tasks:
-  - import_role: interfaces
-  - import_role: routeprotocols
+  - import_role:
+      name: interfaces
+  - import_role: 
+      name: routeprotocols
   - name: save EOS running to startup config after modifying
     ansible.builtin.eos_config:
       save_when: modified
