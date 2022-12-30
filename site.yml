@@ -2,7 +2,8 @@
 # BGP Configurations
 - hosts: "ceos"
   gather_facts: false
-  connection: local
+  connection: "network_cli"
+  become: true
   ##
   tasks:
   - import_role:
