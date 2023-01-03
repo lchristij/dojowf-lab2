@@ -3,6 +3,7 @@
 - hosts: "ceos"
   gather_facts: false
   connection: "network_cli"
+  become: true
 ##
   vars_files:
     - vars/group_vars/ceos.yml
