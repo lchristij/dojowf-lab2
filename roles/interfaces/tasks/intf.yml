@@ -7,14 +7,14 @@
          - name: "{{ item.eos_if }}"
            mode: layer3
 
-    - name: Configure interface state and descriptions
+   - name: Configure interface state and descriptions
       arista.eos.eos_interfaces:
         config:
           - name: "{{ item.eos_if }}"
             description: "{{ item.desc }}"
             enabled: "{{ item.enabled }}"
 
-    - name: Configure L3 IPv4 Interfaces
+   - name: Configure L3 IPv4 Interfaces
       arista.eos.eos_l3_interfaces:
         config:
           - name: "{{ item.eos_if }}"
