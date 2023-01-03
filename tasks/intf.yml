@@ -1,8 +1,5 @@
 ---
 
-  hosts: "ceos"
-  gather_facts: false
-
 # tasks for configuring and managing interface type  
   tasks:
     - name: Configure routed protocols

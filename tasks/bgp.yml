@@ -1,8 +1,5 @@
 ---
 
-  hosts: "ceos"
-  gather_facts: false
-
 # tasks for configuring and managing routing protocols
   tasks:
     - name: Configure BGP - iBGP v4 peers
