@@ -8,10 +8,10 @@
   tasks:
     - name: Configure Interfaces
       ansible.builtin.include_tasks:
-        file: intf.yml
+        file: tasks/intf.yml
     - name: Configure protocols
       ansible.builtin.include_tasks:
-        file: bgp.yml
+        file: tasks/bgp.yml
     - name: save EOS running to startup config after modifying
       eos_config:
         save_when: modified
