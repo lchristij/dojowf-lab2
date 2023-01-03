@@ -1,6 +1,5 @@
 ---
 
-- name: Interface Configuration Tasks
   hosts: "ceos"
   gather_facts: false
 

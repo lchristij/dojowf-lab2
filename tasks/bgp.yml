@@ -1,6 +1,5 @@
 ---
 
-- name: Protocol Configuration Tasks
   hosts: "ceos"
   gather_facts: false
 
