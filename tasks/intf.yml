@@ -1,4 +1,9 @@
 ---
+- hosts: "ceos"
+  gather_facts: false
+  connection: "network_cli"
+  become: true
+  
 # tasks for configuring and managing interface type
 - name: Configure routed protocols
   arista.eos.eos_interfaces:

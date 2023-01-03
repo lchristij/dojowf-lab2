@@ -1,4 +1,9 @@
 ---
+- hosts: "ceos"
+  gather_facts: false
+  connection: "network_cli"
+  become: true
+  
 # tasks for configuring and managing routing protocols
 - name: Configure BGP - iBGP v4 peers
   arista.eos.eos_bgp_global:
