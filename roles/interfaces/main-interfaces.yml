@@ -1,5 +1,5 @@
 ---
 # Add Interfaces Tasks
 ##
-- name: Update and add interfaces on EOS devices
-  include: tasks/intf.yml
+# - name: Update and add interfaces on EOS devices
+#   include: tasks/intf.yml
