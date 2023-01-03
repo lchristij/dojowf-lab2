@@ -8,11 +8,11 @@
   tasks:
   - ansible.builtin.import_role:
       name: interfaces
-      vars_from: '"ceos1.yml" "ceos2.yml"'
+      vars_from: ceos1.yml
       tasks_from: intf.yml
   - ansible.builtin.import_role:
       name: routeprotocols
-      vars_from: '"ceos1.yml" "ceos2.yml"'
+      vars_from: ceos1.yml
       tasks_from: bgp.yml
   # - name: save EOS running to startup config after modifying
   #   eos_config:
