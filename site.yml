@@ -1,8 +1,8 @@
 ---
 # BGP Configurations
-- hosts: localhost
+- hosts: "ceos"
   gather_facts: false
-  become: true
+  connection: "network_cli"
 ##
   vars_files:
     - vars/group_vars/ceos.yml
