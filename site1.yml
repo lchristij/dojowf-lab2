@@ -1,8 +1,10 @@
 ---
-- name: "GET DATA FROM DEVICE"
-  hosts: "ceos"
+# BGP Configurations
+- hosts: "ceos"
   gather_facts: false
   connection: "network_cli"
+  become: true
+
   tasks:
     - name: "VALIDATE DEVICES ARE REACHABLE"
       ansible.builtin.ping:
