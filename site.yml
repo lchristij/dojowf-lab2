@@ -6,9 +6,9 @@
   become: true
 ##
   vars_files:
-    - vars/group_vars/ceos.yml
-    - vars/host_vars/ceos1.yml
-    - vars/host_vars/ceos2.yml
+    - group_vars/ceos.yml
+    - host_vars/ceos1.yml
+    - host_vars/ceos2.yml
   tasks:
     - name: Configure Interfaces
       ansible.builtin.include_tasks:
