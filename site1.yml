@@ -49,4 +49,4 @@
           - name: Ethernet1/1
             description: test
             enabled: true
-          state: merged
+            state: merged
