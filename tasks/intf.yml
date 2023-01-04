@@ -1,7 +1,7 @@
 ---
 # tasks for configuring and managing interface type  
 - name: Configure routed protocols
-  arista.eos.eos_interfaces:
+  arista.eos.interfaces:
     config:
       - name: "{{ item.eos_if }}"
         mode: layer3
@@ -10,7 +10,7 @@
   loop: "{{ interfaces }}"
 
 - name: Configure interface state and descriptions
-  arista.eos.eos_interfaces:
+  arista.eos.interfaces:
     config:
       - name: "{{ item.eos_if }}"
         description: "{{ item.desc }}"
@@ -18,7 +18,7 @@
   loop: "{{ interfaces }}"
 
 - name: Configure L3 IPv4 Interfaces
-  arista.eos.eos_l3_interfaces:
+  arista.eos.l3_interfaces:
     config:
       - name: "{{ item.eos_if }}"
         ipv4:
@@ -26,4 +26,3 @@
   when:
     - item.ipv4 is defined
   loop: "{{ interfaces }}"
-  
