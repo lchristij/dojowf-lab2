@@ -46,7 +46,7 @@
     - name: Configure interface state and descriptions
       arista.eos.eos_interfaces:
         config:
-          - name: Ethernet1/1
-            description: test
-            enabled: true
-            state: merged
+        - name: Ethernet1/1
+          description: test
+          enabled: true
+        state: merged
