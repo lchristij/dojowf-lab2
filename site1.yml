@@ -38,3 +38,7 @@
       arista.eos.eos_facts:
         gather_subset:
         - config
+
+    - name: Gather interface facts from eos
+      arista.eos.interfaces:
+        state: gathered
