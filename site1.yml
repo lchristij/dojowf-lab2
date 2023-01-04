@@ -42,3 +42,11 @@
     - name: Gather interface facts from eos
       arista.eos.interfaces:
         state: gathered
+
+    - name: Configure interface state and descriptions
+      arista.eos.interfaces:
+        config:
+          - name: "{{ item.eos_if }}"
+            description: "{{ item.desc }}"
+            enabled: "{{ item.enabled }}"
+      loop: "{{ interfaces }}"
