@@ -7,8 +7,8 @@
 ##
   vars_files:
     - group_vars/ceos.yml
-    - host_vars/ceos1.yml
-    - host_vars/ceos2.yml
+    - host_vars/clab-lab-01-ceos1.yml
+    - host_vars/clab-lab-01-ceos2.yml
   tasks:
     - name: Configure Interfaces
       ansible.builtin.include_tasks:
