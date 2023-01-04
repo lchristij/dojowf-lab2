@@ -33,3 +33,8 @@
     - name: "VIEW OUTPUT OF SHOW COMMAND"
       ansible.builtin.debug:
         var: "show_interfaces.stdout_lines"
+
+    - name: Gather only the config and default gather_facts
+      arista.eos.eos_facts:
+        gather_subset:
+        - config
