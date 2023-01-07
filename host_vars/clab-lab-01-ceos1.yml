@@ -12,10 +12,6 @@ bgp:
        remote_as: 65100
        ibgp: true
        update_source: Loopback0
-     - neighbor: 192.168.1.5
-       remote_as: 65002
-       ibgp: true
-       update_source: Loopback0
 interfaces:
   - eos_if: "Ethernet1/1"
     desc: "Ethernet1/1 - Srl to ceos1 peering intf"

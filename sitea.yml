@@ -56,7 +56,20 @@
         config:
           - name: "{{ item.eos_if }}"
             ipv4:
-            - address: "{{ item.ipv4_neighbors }}"
+            - address: "{{ item.ipv4 }}"
       when:
         - item.ipv4 is defined
       loop: "{{ interfaces }}"
+
+    - name: Configure BGP - iBGP v4 peers
+      arista.eos.eos_bgp:
+        config:
+          bgp_as: "{{ bgp['local_as'] }}"
+          log_neighbor_changes: True
+          router_id: " {{ router_id }}"
+          neighbors:
+          - neighbor: "{{ item.neighbor }}"
+            remote_as: "{{ item.remote_as }}"
+      when:
+        - bgp is defined
+      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
