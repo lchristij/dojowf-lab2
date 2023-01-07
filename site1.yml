@@ -47,9 +47,6 @@
       arista.eos.eos_interfaces:
         config:
         - name: Ethernet1/1
-          description: test1
-          enabled: true
-        - name: Ethernet2/1
-          description: test2
+          description: test
           enabled: true
         state: replaced
