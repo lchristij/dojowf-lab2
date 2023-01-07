@@ -46,7 +46,8 @@
     - name: Configure interface state and descriptions
       arista.eos.eos_interfaces:
         config:
-        - name: Ethernet1/1
-          description: test
-          enabled: true
+        - name: "{{ item.eos_if }}"
+          description: "{{ item.desc }}"
+          enabled: "{{ item.enabled }}"
         state: replaced
+      loop: "{{ interfaces }}"
