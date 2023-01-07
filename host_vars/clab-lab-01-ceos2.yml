@@ -7,7 +7,7 @@ rtr_role: ceos2_core
 bgp:
   local_as: 65002
   neighbors:
-  ipv4_neighbors:
+    ipv4_neighbors:
      - neighbor: 192.168.1.2
        remote_as: 65100
        ibgp: true
