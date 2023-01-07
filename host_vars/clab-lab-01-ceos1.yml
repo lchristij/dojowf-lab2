@@ -17,13 +17,13 @@ bgp:
        ibgp: true
        update_source: Loopback0
 interfaces:
-  - eos_if: "Ethernet1"
-    desc: "Ethernet1 - Srl peering intf"
+  - eos_if: "Ethernet1/1"
+    desc: "Ethernet1/1 - Srl peering intf"
     enabled: true
     routed: true
     ipv4: "192.168.1.1/24"
-  - eos_if: "Ethernet2"
-    desc: "Ethernet2 - ceos2 peering intf"
+  - eos_if: "Ethernet2/1"
+    desc: "Ethernet2/1 - ceos2 peering intf"
     enabled: true
     routed: true
     ipv4: "192.168.1.4/24"
