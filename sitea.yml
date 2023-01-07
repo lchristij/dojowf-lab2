@@ -34,20 +34,29 @@
       ansible.builtin.debug:
         var: "show_interfaces.stdout_lines"
 
-    - name: Gather only the config and default gather_facts
-      arista.eos.eos_facts:
-        gather_subset:
-        - config
-
-    - name: Gather interface facts from eos
+    - name: Configure routed protocols
       arista.eos.interfaces:
-        state: gathered
+        config:
+          - name: "{{ item.eos_if }}"
+            mode: layer3
+      when:
+        - item.routed is defined
+      loop: "{{ interfaces }}"
 
     - name: Configure interface state and descriptions
-      arista.eos.eos_interfaces:
+      arista.eos.interfaces:
         config:
-        - name: "{{ item.eos_if }}"
-          description: "{{ item.desc }}"
-          enabled: "{{ item.enabled }}"
-        state: replaced
+          - name: "{{ item.eos_if }}"
+            description: "{{ item.desc }}"
+            enabled: "{{ item.enabled }}"
+      loop: "{{ interfaces }}"
+
+    - name: Configure L3 IPv4 Interfaces
+      arista.eos.l3_interfaces:
+        config:
+          - name: "{{ item.eos_if }}"
+            ipv4:
+            - address: "{{ item.ipv4_neighbors }}"
+      when:
+        - item.ipv4 is defined
       loop: "{{ interfaces }}"
