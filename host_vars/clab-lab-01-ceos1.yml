@@ -22,8 +22,3 @@ interfaces:
     enabled: true
     routed: true
     ipv4: "192.168.1.1/24"
-  - eos_if: "Ethernet2/1"
-    desc: "Ethernet2/1 - ceos2 peering intf"
-    enabled: true
-    routed: true
-    ipv4: "192.168.1.4/24"
