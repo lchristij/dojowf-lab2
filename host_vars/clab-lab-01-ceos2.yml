@@ -23,5 +23,4 @@ interfaces:
   - eos_if: "Loopback0"
     desc: "Loopback0 - Update Source"
     enabled: true
-    routed: true
     ipv4: "10.10.10.2/32"
