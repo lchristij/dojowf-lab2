@@ -76,6 +76,13 @@
           neighbors:
           - neighbor: "{{ item.neighbor }}"
             remote_as: "{{ item.remote_as }}"
+      when:
+        - bgp is defined
+      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
+
+    - name: Configure BGP Networks
+      arista.eos.eos_bgp:
+        config:
           networks:
           - prefix: "{{ item.prefix }}"
             masklen: "{{ item.masklen }}"
@@ -83,6 +90,5 @@
           # - protocol: "{{ item.protocol }}"
       when:
         - bgp is defined
-      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
       loop: "{{ bgp.networks.ipv4_networks }}"
       # loop: "{{ bgp.redistribute.ipv4_redistro }}"
