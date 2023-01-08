@@ -61,6 +61,11 @@
         - item.ipv4 is defined
       loop: "{{ interfaces }}"
 
+    - name: Enable IPv4 routing
+      eos_config:
+        lines:
+          - "ip routing"
+
     - name: Configure BGP - iBGP v4 peers
       arista.eos.eos_bgp:
         config:
