@@ -83,6 +83,7 @@
     - name: Configure BGP Networks
       arista.eos.eos_bgp:
         config:
+          bgp_as: "{{ bgp['local_as'] }}"
           networks:
           - prefix: "{{ item.prefix }}"
             masklen: "{{ item.masklen }}"
