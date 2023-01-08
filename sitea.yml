@@ -71,9 +71,6 @@
           - neighbor: "{{ item.neighbor }}"
             remote_as: "{{ item.remote_as }}"
             update_source: "{{ item.update_source }}"
-          - network: "{{ item.network }}"
-            prefix: "{{ item.prefix }}"
-            masklen: "{{ item.masklen }}"
       when:
         - bgp is defined
       loop: "{{ bgp.neighbors.ipv4_neighbors }}"
