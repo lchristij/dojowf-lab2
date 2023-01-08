@@ -76,13 +76,13 @@
           neighbors:
           - neighbor: "{{ item.neighbor }}"
             remote_as: "{{ item.remote_as }}"
-          # networks:
-          # - prefix: "{{ item.prefix }}"
-          #   masklen: "{{ item.masklen }}"
+          networks:
+          - prefix: "{{ item.prefix }}"
+            masklen: "{{ item.masklen }}"
           # redistribute:
           # - protocol: "{{ item.protocol }}"
       when:
         - bgp is defined
       loop: "{{ bgp.neighbors.ipv4_neighbors }}"
-      # loop: "{{ bgp.networks.ipv4_networks }}"
+      loop: "{{ bgp.networks.ipv4_networks }}"
       # loop: "{{ bgp.redistribute.ipv4_redistro }}"

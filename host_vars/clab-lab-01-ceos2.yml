@@ -10,10 +10,10 @@ bgp:
      - neighbor: 192.168.1.2
        remote_as: 65100
        update_source: Loopback0
-  # networks:
-  #   ipv4_networks: 
-  #    - prefix: 10.10.10.0
-  #      masklen: 32
+  networks:
+    ipv4_networks: 
+     - prefix: 10.10.10.0
+       masklen: 32
   # redistribute:
   #   ipv4_redistro:
   #    - protocol: connected
