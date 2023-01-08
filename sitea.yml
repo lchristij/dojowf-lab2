@@ -62,7 +62,7 @@
       loop: "{{ interfaces }}"
 
     - name: Configure BGP - iBGP v4 peers
-      arista.eos.eos_bgp_global:
+      arista.eos.eos_bgp:
         config:
           as_number: "{{ bgp['local_as'] }}"
           log_neighbor_changes: True
