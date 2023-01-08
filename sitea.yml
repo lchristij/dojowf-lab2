@@ -70,7 +70,6 @@
           neighbors:
           - neighbor: "{{ item.neighbor }}"
             remote_as: "{{ item.remote_as }}"
-            update_source: "{{ item.update_source }}"
       when:
         - bgp is defined
       loop: "{{ bgp.neighbors.ipv4_neighbors }}"
