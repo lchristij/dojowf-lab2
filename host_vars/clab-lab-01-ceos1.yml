@@ -9,7 +9,6 @@ bgp:
     ipv4_neighbors:
      - neighbor: 192.168.1.0
        remote_as: 65100
-       ibgp: true
        update_source: Loopback0
 interfaces:
   - eos_if: "Ethernet1/1"
