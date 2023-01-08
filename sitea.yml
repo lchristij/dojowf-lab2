@@ -87,9 +87,16 @@
           networks:
           - prefix: "{{ item.prefix }}"
             masklen: "{{ item.masklen }}"
-          # redistribute:
-          # - protocol: "{{ item.protocol }}"
       when:
         - bgp is defined
       loop: "{{ bgp.networks.ipv4_networks }}"
-      # loop: "{{ bgp.redistribute.ipv4_redistro }}"
+
+    - name: Configure BGP Route Redistribution
+      arista.eos.eos_bgp:
+        config:
+          bgp_as: "{{ bgp['local_as'] }}"
+          redistribute:
+          - protocol: "{{ item.protocol }}"
+      when:
+        - bgp is defined
+      loop: "{{ bgp.redistribute.ipv4_redistro }}"

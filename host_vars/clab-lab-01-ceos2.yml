@@ -14,9 +14,9 @@ bgp:
     ipv4_networks: 
      - prefix: 10.10.10.0
        masklen: 32
-  # redistribute:
-  #   ipv4_redistro:
-  #    - protocol: connected
+  redistribute:
+    ipv4_redistro:
+     - protocol: connected
 interfaces:
   - eos_if: "Ethernet1/1"
     desc: "Ethernet1/1 - Srl to ceos2 peering intf"
