@@ -12,7 +12,7 @@ bgp:
        update_source: Loopback0
   networks:
     ipv4_networks: 
-     - prefix: 10.10.10.0
+     - prefix: 10.10.10.2
        masklen: 32
   redistribute:
     ipv4_redistro:
