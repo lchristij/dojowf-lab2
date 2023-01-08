@@ -12,7 +12,8 @@ bgp:
        ibgp: true
        update_source: Loopback0
     networks:
-     - prefix: "10.10.10.0/32"
+     - prefix: 10.10.10.0
+       masklen: 32
 interfaces:
   - eos_if: "Ethernet1/1"
     desc: "Ethernet1/1 - Srl to ceos1 peering intf"
