@@ -75,6 +75,8 @@
           neighbors:
           - neighbor: "{{ item.neighbor }}"
             remote_as: "{{ item.remote_as }}"
+          networks:
+          - prefix: "{{ item.prefix }}"
       when:
         - bgp is defined
       loop: "{{ bgp.neighbors.ipv4_neighbors }}"
