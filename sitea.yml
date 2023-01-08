@@ -83,4 +83,6 @@
           - protocol: "{{ item.protocol }}"
       when:
         - bgp is defined
-      loop: "{{ bgp }}"
+      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
+      loop: "{{ bgp.networks.ipv4_networks }}"
+      loop: "{{ bgp.redistribute.ipv4_redistro }}"
