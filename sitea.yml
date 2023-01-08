@@ -64,7 +64,7 @@
     - name: Configure BGP - iBGP v4 peers
       arista.eos.eos_bgp:
         config:
-          as_number: "{{ bgp['local_as'] }}"
+          bgp_as: "{{ bgp['local_as'] }}"
           log_neighbor_changes: True
           router_id: " {{ router_id }}"
           neighbors:
