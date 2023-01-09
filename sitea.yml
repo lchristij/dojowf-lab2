@@ -49,7 +49,7 @@
         - name: "{{ item.eos_if }}"
           description: "{{ item.desc }}"
           enabled: "{{ item.enabled }}"
-        state: replaced
+        state: merge
       loop: "{{ interfaces }}"
 
     - name: Configure L3 IPv4 Interfaces
