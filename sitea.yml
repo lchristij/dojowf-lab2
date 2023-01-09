@@ -39,6 +39,7 @@
         config:
         - name: "{{ item.eos_if }}"
           mode: layer3
+        state: replaced
       when:
         - item.routed is defined
       loop: "{{ interfaces }}"
@@ -49,7 +50,7 @@
         - name: "{{ item.eos_if }}"
           description: "{{ item.desc }}"
           enabled: "{{ item.enabled }}"
-        state: merge
+        state: merged
       loop: "{{ interfaces }}"
 
     - name: Configure L3 IPv4 Interfaces
@@ -58,6 +59,7 @@
         - name: "{{ item.eos_if }}"
           ipv4:
           - address: "{{ item.ipv4 }}"
+        state: merged
       when:
         - item.ipv4 is defined
       loop: "{{ interfaces }}"
