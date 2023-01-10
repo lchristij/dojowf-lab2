@@ -42,6 +42,7 @@
         state: replaced
       when:
         - item.routed is defined
+      loop: "{{ interfaces }}"
 
     - name: Configure interface state and descriptions
       arista.eos.interfaces:
@@ -50,6 +51,7 @@
           description: "{{ item.desc }}"
           enabled: "{{ item.enabled }}"
         state: merged
+      loop: "{{ interfaces }}"
 
     - name: Configure L3 IPv4 Interfaces
       arista.eos.l3_interfaces:
@@ -60,6 +62,7 @@
         state: merged
       when:
         - item.ipv4 is defined
+      loop: "{{ interfaces }}"
 
     - name: Enable IPv4 routing
       eos_config:
@@ -77,6 +80,7 @@
             remote_as: "{{ item.remote_as }}"
       when:
         - bgp is defined
+      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
 
     - name: Configure BGP Networks
       arista.eos.eos_bgp:
@@ -87,3 +91,4 @@
             masklen: "{{ item.masklen }}"
       when:
         - bgp is defined
+      loop: "{{ bgp.networks.ipv4_networks }}"
