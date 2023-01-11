@@ -41,6 +41,7 @@
           mode: layer3
         state: replaced
       when: item.routed is defined
+      loop: "{{ interfaces }}"
 
     - name: Configure interface state and descriptions
       arista.eos.interfaces:
