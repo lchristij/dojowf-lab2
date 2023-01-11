@@ -50,8 +50,7 @@
               description: "{{ item.desc }}"
               enabled: "{{ item.enabled }}"
             state: merged
-      when:
-        - item.routed is defined
+      when: item.routed is defined
 
     - name: Configure L3 IPv4 Interfaces
       arista.eos.l3_interfaces:
@@ -60,8 +59,7 @@
           ipv4:
           - address: "{{ item.ipv4 }}"
         state: merged
-      when:
-        - item.ipv4 is defined
+      when: item.ipv4 is defined
 
     - name: Enable IPv4 routing
       eos_config:
@@ -87,7 +85,4 @@
               networks:
               - prefix: "{{ item.prefix }}"
                 masklen: "{{ item.masklen }}"
-      when:
-        - bgp is defined
-      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
-      loop: "{{ bgp.networks.ipv4_networks }}"
+      when: bgp is defined
