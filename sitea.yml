@@ -41,16 +41,18 @@
             - name: "{{ item.eos_if }}"
               mode: layer3
             state: replaced
-          when:
-            - item.routed is defined
+          # when:
+          #   - item.routed is defined
 
         - name: Configure interface state and descriptions
-          arista.eos.interfaces:
+          # arista.eos.interfaces:
             config:
             - name: "{{ item.eos_if }}"
               description: "{{ item.desc }}"
               enabled: "{{ item.enabled }}"
             state: merged
+          when:
+            - item.routed is defined
 
         - name: Configure L3 IPv4 Interfaces
           arista.eos.l3_interfaces:
@@ -62,29 +64,29 @@
           when:
             - item.ipv4 is defined
 
-        - name: Enable IPv4 routing
-          eos_config:
-            lines:
-              - "ip routing"
+    - name: Enable IPv4 routing
+      eos_config:
+        lines:
+          - "ip routing"
 
-        - name: Configure BGP - iBGP v4 peers
-          arista.eos.eos_bgp:
-            config:
-              bgp_as: "{{ bgp['local_as'] }}"
-              log_neighbor_changes: True
-              router_id: " {{ router_id }}"
-              neighbors:
-              - neighbor: "{{ item.neighbor }}"
-                remote_as: "{{ item.remote_as }}"
-          when:
-            - bgp is defined
+    - name: Configure BGP - iBGP v4 peers
+      arista.eos.eos_bgp:
+        config:
+          bgp_as: "{{ bgp['local_as'] }}"
+          log_neighbor_changes: True
+          router_id: " {{ router_id }}"
+          neighbors:
+          - neighbor: "{{ item.neighbor }}"
+            remote_as: "{{ item.remote_as }}"
+      when:
+        - bgp is defined
 
-        - name: Configure BGP Networks
-          arista.eos.eos_bgp:
-            config:
-              bgp_as: "{{ bgp['local_as'] }}"
-              networks:
-              - prefix: "{{ item.prefix }}"
-                masklen: "{{ item.masklen }}"
-          when:
-            - bgp is defined
+    - name: Configure BGP Networks
+      arista.eos.eos_bgp:
+        config:
+          bgp_as: "{{ bgp['local_as'] }}"
+          networks:
+          - prefix: "{{ item.prefix }}"
+            masklen: "{{ item.masklen }}"
+      when:
+        - bgp is defined
