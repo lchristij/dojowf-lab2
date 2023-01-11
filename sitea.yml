@@ -69,24 +69,25 @@
         lines:
           - "ip routing"
 
-    - name: Configure BGP - iBGP v4 peers
-      arista.eos.eos_bgp:
-        config:
-          bgp_as: "{{ bgp['local_as'] }}"
-          log_neighbor_changes: True
-          router_id: " {{ router_id }}"
-          neighbors:
-          - neighbor: "{{ item.neighbor }}"
-            remote_as: "{{ item.remote_as }}"
-      when:
-        - bgp is defined
+    - block:
+        - name: Configure BGP - iBGP v4 peers
+          arista.eos.eos_bgp:
+            config:
+              bgp_as: "{{ bgp['local_as'] }}"
+              log_neighbor_changes: True
+              router_id: " {{ router_id }}"
+              neighbors:
+              - neighbor: "{{ item.neighbor }}"
+                remote_as: "{{ item.remote_as }}"
+      # when:
+      #   - bgp is defined
 
-    - name: Configure BGP Networks
-      arista.eos.eos_bgp:
-        config:
-          bgp_as: "{{ bgp['local_as'] }}"
-          networks:
-          - prefix: "{{ item.prefix }}"
-            masklen: "{{ item.masklen }}"
+        - name: Configure BGP Networks
+          arista.eos.eos_bgp:
+            config:
+              bgp_as: "{{ bgp['local_as'] }}"
+              networks:
+              - prefix: "{{ item.prefix }}"
+                masklen: "{{ item.masklen }}"
       when:
         - bgp is defined
