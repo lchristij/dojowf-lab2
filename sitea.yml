@@ -80,3 +80,4 @@
           - prefix: "{{ item.prefix }}"
             masklen: "{{ item.masklen }}"
       when: bgp is defined
+      loop: "{{ bgp.neighbors.ipv4_neighbors }}"
