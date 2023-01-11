@@ -79,8 +79,6 @@
               neighbors:
               - neighbor: "{{ item.neighbor }}"
                 remote_as: "{{ item.remote_as }}"
-      # when:
-      #   - bgp is defined
 
         - name: Configure BGP Networks
           arista.eos.eos_bgp:
