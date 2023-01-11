@@ -60,6 +60,7 @@
           - address: "{{ item.ipv4 }}"
         state: merged
       when: item.ipv4 is defined
+      loop: "{{ interfaces }}"
 
     - name: Enable IPv4 routing
       eos_config:
