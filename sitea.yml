@@ -42,6 +42,7 @@
             - name: "{{ item.eos_if }}"
               mode: layer3
             state: replaced
+          when: item.routed is defined
 
         - name: Configure interface state and descriptions
           arista.eos.interfaces:
@@ -50,7 +51,6 @@
               description: "{{ item.desc }}"
               enabled: "{{ item.enabled }}"
             state: merged
-      when: item.routed is defined
 
     - name: Configure L3 IPv4 Interfaces
       arista.eos.l3_interfaces:
@@ -66,23 +66,16 @@
         lines:
           - "ip routing"
 
-    - name: Configure BGP on IPv4 peers
-      block:
-        - name: Configure AS attributes and neighbor
-          arista.eos.eos_bgp:
-            config:
-              bgp_as: "{{ bgp['local_as'] }}"
-              log_neighbor_changes: True
-              router_id: " {{ router_id }}"
-              neighbors:
-              - neighbor: "{{ item.neighbor }}"
-                remote_as: "{{ item.remote_as }}"
-
-        - name: Configure BGP Networks
-          arista.eos.eos_bgp:
-            config:
-              bgp_as: "{{ bgp['local_as'] }}"
-              networks:
-              - prefix: "{{ item.prefix }}"
-                masklen: "{{ item.masklen }}"
+    - name: Configure AS attributes and neighbor
+      arista.eos.eos_bgp:
+        config:
+          bgp_as: "{{ bgp['local_as'] }}"
+          log_neighbor_changes: True
+          router_id: " {{ router_id }}"
+          neighbors:
+          - neighbor: "{{ item.neighbor }}"
+            remote_as: "{{ item.remote_as }}"
+          networks:
+          - prefix: "{{ item.prefix }}"
+            masklen: "{{ item.masklen }}"
       when: bgp is defined
