@@ -45,7 +45,7 @@
           #   - item.routed is defined
 
         - name: Configure interface state and descriptions
-          # arista.eos.interfaces:
+          arista.eos.interfaces:
             config:
             - name: "{{ item.eos_if }}"
               description: "{{ item.desc }}"
