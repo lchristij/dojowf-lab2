@@ -34,7 +34,8 @@
       ansible.builtin.debug:
         var: "show_interfaces.stdout_lines"
 
-    - block:
+    - name: Configure L2 interface and set mode for routing
+      block:
         - name: Configure routed protocols
           arista.eos.interfaces:
             config:
@@ -69,8 +70,9 @@
         lines:
           - "ip routing"
 
-    - block:
-        - name: Configure BGP - iBGP v4 peers
+    - name: Configure BGP on IPv4 peers
+      block:
+        - name: Configure AS attributes and neighbor
           arista.eos.eos_bgp:
             config:
               bgp_as: "{{ bgp['local_as'] }}"
