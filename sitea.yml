@@ -34,23 +34,21 @@
       ansible.builtin.debug:
         var: "show_interfaces.stdout_lines"
 
-    - name: Configure L2 interface and set mode for routing
-      block:
-        - name: Configure routed protocols
-          arista.eos.interfaces:
-            config:
-            - name: "{{ item.eos_if }}"
-              mode: layer3
-            state: replaced
-          when: item.routed is defined
+    - name: Configure routed protocols
+      arista.eos.interfaces:
+        config:
+        - name: "{{ item.eos_if }}"
+          mode: layer3
+        state: replaced
+      when: item.routed is defined
 
-        - name: Configure interface state and descriptions
-          arista.eos.interfaces:
-            config:
-            - name: "{{ item.eos_if }}"
-              description: "{{ item.desc }}"
-              enabled: "{{ item.enabled }}"
-            state: merged
+    - name: Configure interface state and descriptions
+      arista.eos.interfaces:
+        config:
+        - name: "{{ item.eos_if }}"
+          description: "{{ item.desc }}"
+          enabled: "{{ item.enabled }}"
+        state: merged
 
     - name: Configure L3 IPv4 Interfaces
       arista.eos.l3_interfaces:
