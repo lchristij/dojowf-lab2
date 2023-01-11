@@ -71,13 +71,13 @@
       arista.eos.eos_bgp:
         config:
           bgp_as: "{{ bgp['local_as'] }}"
+          networks:
+          - prefix: "{{ item.prefix }}"
+            masklen: "{{ item.masklen }}"
           log_neighbor_changes: True
           router_id: " {{ router_id }}"
           neighbors:
           - neighbor: "{{ item.neighbor }}"
             remote_as: "{{ item.remote_as }}"
-          networks:
-          - prefix: "{{ item.prefix }}"
-            masklen: "{{ item.masklen }}"
       when: bgp is defined
       loop: "{{ bgp.neighbors.ipv4_neighbors }}"
