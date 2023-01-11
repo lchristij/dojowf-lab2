@@ -81,4 +81,4 @@
             masklen: "{{ item.masklen }}"
       when: bgp is defined
       loop: "{{ bgp.neighbors.ipv4_neighbors }}" 
-      loop: "{{ bgp.networks.ipv4_networks }}" 
+      # loop: "{{ bgp.networks.ipv4_networks }}" 
